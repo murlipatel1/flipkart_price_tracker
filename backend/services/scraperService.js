@@ -28,7 +28,7 @@ class ScraperService {
         // Navigate to URL with timeout and wait for network idle
         await page.goto(url, {
           waitUntil: 'networkidle2',
-          timeout: 50000
+          timeout: 120000 
         });
 
         // Extract product data using evaluate
@@ -36,7 +36,7 @@ class ScraperService {
           const getTextContent = (selector) => {
             const element = document.querySelector(selector);
             return element ? element.textContent.trim() : '';
-          };
+          }; 
   
           const getRatings = () => {
             const ratingsElement = document.querySelector('div.j-aW8Z span'); // First occurrence of span
@@ -60,7 +60,7 @@ class ScraperService {
           totalReviews: getReviews(), // Total reviews
           totalPurchases: getRatings()// Can fetch the same element if needed
           };
-        });
+        }); 
   
         // Clean and format the data
         return {

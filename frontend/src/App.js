@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductForm from "./components/ProductForm";
+import SearchProducts from "./components/SearchProducts";
+import PriceHistory from "./components/PriceHistory";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        <h1>Flipkart Price Tracker</h1>
+        <Routes>
+          <Route path="/" element={<ProductForm />} />
+          <Route path="/search" element={<SearchProducts />} />
+          <Route path="/products/:productId/history" element={<PriceHistory />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

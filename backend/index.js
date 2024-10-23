@@ -4,6 +4,8 @@ const express = require('express');
 // const connectDB = require('./config/database');
 const productRoutes = require('./routes/productRoutes');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 // const { configDotenv } = require('dotenv');
 const app = express();
 
@@ -25,6 +27,8 @@ const connectDB = async () => {
 
 connectDB();
 
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api', productRoutes);
 
