@@ -43,6 +43,13 @@ Here’s a breakdown of the project structure in points:
 
 - **.env**: Contains environment variables (e.g., MongoDB URI, port).
 
+![image](https://github.com/user-attachments/assets/cfd655e7-fab3-4cf2-a88a-36ff4fe6a892)
+
+--
+
+![image](https://github.com/user-attachments/assets/f2c5447a-03b7-4c60-b400-47ed999d1684)
+
+
 ### Frontend
 - **public**
   - `index.html`: Base HTML file for the React app.
