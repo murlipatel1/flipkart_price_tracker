@@ -1,30 +1,24 @@
-
 // app.js
 const express = require('express');
-// const connectDB = require('./config/database');
-const productRoutes = require('./routes/productRoutes');
 const mongoose = require('mongoose');
+const productRoutes = require('./routes/productRoutes');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const { configDotenv } = require('dotenv');
+const dotenv = require('dotenv');
 const app = express();
 
+dotenv.config();
 
 // Connect to MongoDB
 const connectDB = async () => {
-    try {
-      await mongoose.connect("mongodb://localhost:27017/flipkartPriceTracker", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      });
-      console.log('MongoDB connected successfully');
-    } catch (error) {
-      console.error('MongoDB connection error:', error);
-      process.exit(1);
-    }
-  };
-
-
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
+  }
+};
 connectDB();
 
 app.use(cors());

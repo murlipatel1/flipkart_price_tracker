@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ProductForm = () => {
   const [url, setUrl] = useState("");
   const [message, setMessage] = useState("");
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

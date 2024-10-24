@@ -4,6 +4,7 @@ const PriceHistory = require('../models/PriceHistory');
 const scraperService = require('./scraperService');
 
 class ProductService {
+  // service methods for Product
   async addProduct(url) {
     const productData = await scraperService.scrapeProductData(url);
     const product = new Product({
@@ -20,6 +21,7 @@ class ProductService {
     return product;
   }
 
+  // 
   async recheckPrice(productId) {
     const product = await Product.findById(productId);
     const newData = await scraperService.scrapeProductData(product.url);

@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 
 class ScraperService {
     async scrapeProductData(url) {
+      // puppet service requires headless mode to be disabled by default for production
       const browser = await puppeteer.launch({
         headless: 'new',
         args: ['--no-sandbox', '--disable-setuid-sandbox']
